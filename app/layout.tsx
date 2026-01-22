@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "verification_token", // Placeholder for actual token if user has one
+    google: "aYcKuBIhjPqe_dkJa8I8xJKW1eVTsciX7uq_gNJGRsY",
   },
 };
 
