@@ -61,8 +61,8 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                         </span>
                         <h2 className="font-serif text-3xl md:text-5xl text-white italic leading-tight">
                             First Look:
-                            <br className="block" />
-                            <span className="not-italic block mt-1">
+                            <br />
+                            <span className="not-italic block mt-2">
                                 {isEs ? "El Horizonte que Viene" : "The Horizon Ahead"}
                             </span>
                         </h2>
@@ -74,7 +74,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                     <div
                         className={`relative flex-1 trinity-col group overflow-hidden rounded-lg lg:rounded-none lg:first:rounded-l-2xl border border-white/5 cursor-pointer
                          transition-all duration-500 ease-in-out
-                         ${expandedCard === 'X4' ? 'h-[500px]' : 'h-[300px]'} lg:h-auto
+                         ${expandedCard === 'X4' ? 'h-[650px]' : 'h-[160px]'} lg:h-auto
              `}
                         onClick={() => handleCardClick('X4')}
                     >
@@ -140,7 +140,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                     <div
                         className={`relative flex-1 trinity-col group overflow-hidden rounded-lg lg:rounded-none border border-white/5 cursor-pointer
                          transition-all duration-500 ease-in-out
-                         ${expandedCard === 'X6' ? 'h-[500px]' : 'h-[300px]'} lg:h-auto
+                         ${expandedCard === 'X6' ? 'h-[650px]' : 'h-[160px]'} lg:h-auto
              `}
                         onClick={() => handleCardClick('X6')}
                     >
@@ -207,7 +207,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                     <div
                         className={`relative flex-1 trinity-col group overflow-hidden rounded-lg lg:rounded-none lg:last:rounded-r-2xl border border-white/5 cursor-pointer
                          transition-all duration-500 ease-in-out
-                         ${expandedCard === 'XS5' ? 'h-[500px]' : 'h-[300px]'} lg:h-auto
+                         ${expandedCard === 'XS5' ? 'h-[650px]' : 'h-[160px]'} lg:h-auto
              `}
                         onClick={() => handleCardClick('XS5')}
                     >
