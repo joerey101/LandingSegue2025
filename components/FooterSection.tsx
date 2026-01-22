@@ -6,16 +6,20 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
     const isEs = lang === "es";
     const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        setFormStatus('sending');
-        // Simulate send
-        setTimeout(() => {
-            setFormStatus('sent');
-            // Reset after 3 seconds
-            setTimeout(() => setFormStatus('idle'), 3000);
-        }, 1500);
-    };
+    const countryCodes = [
+        { code: "+54", country: "AR" },
+        { code: "+1", country: "US" },
+        { code: "+44", country: "UK" },
+        { code: "+55", country: "BR" },
+        { code: "+52", country: "MX" },
+        { code: "+34", country: "ES" },
+        { code: "+33", country: "FR" },
+        { code: "+39", country: "IT" },
+        { code: "+49", country: "DE" },
+        { code: "+971", country: "AE" }, // UAE
+        { code: "+598", country: "UY" },
+        { code: "+56", country: "CL" },
+    ];
 
     const t = {
         legacyTitle: isEs ? <>EL LEGADO DEL<br />MOVIMIENTO</> : <>THE LEGACY OF<br />MOVEMENT</>,
@@ -103,6 +107,9 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
                                     setFormStatus('idle');
                                 }
                             }}>
+                                {/* Spam Protection: Honeypot */}
+                                <input type="text" name="_gotcha" style={{ display: 'none' }} />
+
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <input
                                         type="text"
@@ -119,13 +126,29 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
                                         className="bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans w-full"
                                     />
                                 </div>
-                                <input
-                                    type="tel"
-                                    name="phone"
-                                    required
-                                    placeholder={t.placeholders.phone}
-                                    className="w-full bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans"
-                                />
+                                <div className="flex gap-4">
+                                    <div className="w-1/3 md:w-1/4">
+                                        <select
+                                            name="countryCode"
+                                            className="w-full bg-transparent border-b border-white/20 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors uppercase tracking-widest outline-none font-sans text-white [&>option]:text-black"
+                                            defaultValue="+54"
+                                        >
+                                            {countryCodes.map((item) => (
+                                                <option key={item.code} value={item.code}>
+                                                    {item.country} ({item.code})
+                                                </option>
+                                            ))}
+                                            <option value="">OTHER</option>
+                                        </select>
+                                    </div>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        required
+                                        placeholder="9 11 1234 5678"
+                                        className="flex-1 bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans"
+                                    />
+                                </div>
                                 <textarea
                                     name="message"
                                     placeholder={t.placeholders.msg}
@@ -135,8 +158,10 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
                                 <button
                                     type="submit"
                                     disabled={formStatus !== 'idle'}
-                                    className={`group relative light-streak w-full py-4 bg-segue-blue text-white text-[10px] font-bold tracking-[0.4em] uppercase hover:scale-[1.02] shadow-xl transition-all border border-white/20 hover:border-white/40
-                    ${formStatus === 'sent' ? 'bg-green-600 border-green-500' : ''}
+                                    className={`group relative light-streak w-full py-4 text-white text-[10px] font-bold tracking-[0.4em] uppercase hover:scale-[1.02] shadow-xl transition-all border border-white/20 hover:border-white/40
+                    ${formStatus === 'sent'
+                                            ? 'bg-green-600 border-green-500'
+                                            : 'bg-segue-blue'}
                   `}
                                 >
                                     {formStatus === 'idle' && t.cta}
