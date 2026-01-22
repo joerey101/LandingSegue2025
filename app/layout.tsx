@@ -29,23 +29,92 @@ const riviera = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://discover.segueyachts.com"),
-  title: "Segue Yachts | Rediseñando los Límites",
-  description: "La Nueva Era de Segue. Rediseñando los límites del diseño naval.",
+  title: {
+    default: "Segue Yachts | Astillero Argentino de Lujo",
+    template: "%s | Segue Yachts"
+  },
+  description: "Descubre la nueva era de Segue Yachts. Astillero líder en Argentina, creando embarcaciones de lujo que redefinen los límites del diseño naval y la tecnología.",
+  keywords: [
+    "Segue Yachts", "Astillero Argentina", "Yates de Lujo", "Venta de Barcos Argentina",
+    "Diseño Naval", "Barcos de Placer", "Luxury Yachts", "San Fernando", "Buenos Aires",
+    "Embarcaciones Exclusivas", "Navegación", "Astillero Segue"
+  ],
+  authors: [{ name: "Segue Yachts" }],
+  creator: "Segue Yachts",
+  publisher: "Segue Yachts",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   alternates: {
     canonical: "/",
+    languages: {
+      'en-US': '/en',
+      'es-AR': '/',
+    },
   },
   openGraph: {
     title: "Segue Yachts | Rediseñando los Límites",
-    description: "La Nueva Era de Segue. Rediseñando los límites del diseño naval.",
+    description: "La Nueva Era de Segue. Rediseñando los límites del diseño naval desde Argentina para el mundo.",
     url: "https://discover.segueyachts.com",
     siteName: "Segue Yachts",
     locale: "es_ES",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Segue Yachts - Luxury Naval Design",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Segue Yachts | Rediseñando los Límites",
+    description: "Astillero líder en Argentina. Fusionamos arte y tecnología.",
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
+  verification: {
+    google: "verification_token", // Placeholder for actual token if user has one
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Segue Yachts",
+  "url": "https://discover.segueyachts.com",
+  "logo": "https://discover.segueyachts.com/Segue-logo.svg",
+  "description": "Astillero argentino líder en el diseño y construcción de yates de lujo.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Fernando",
+    "addressRegion": "Buenos Aires",
+    "addressCountry": "AR"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "areaServed": "AR",
+    "availableLanguage": ["Es", "En"]
+  },
+  "sameAs": [
+    "https://www.instagram.com/segueyachts",
+    "https://www.facebook.com/segueyachts"
+  ]
 };
 
 export default function RootLayout({
@@ -56,6 +125,10 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${outfit.variable} ${riviera.variable} antialiased`}>
       <body className="bg-background-dark text-white font-sans overflow-x-hidden selection:bg-primary selection:text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>
