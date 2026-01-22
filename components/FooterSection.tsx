@@ -74,16 +74,46 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
                             <h3 className="text-primary text-[10px] tracking-[0.4em] font-bold uppercase mb-8 leading-none">
                                 {t.formTitle}
                             </h3>
-                            <form className="space-y-6" onSubmit={handleSubmit}>
+                            <form className="space-y-6" onSubmit={async (e) => {
+                                e.preventDefault();
+                                setFormStatus('sending');
+                                const form = e.currentTarget;
+                                const formData = new FormData(form);
+
+                                try {
+                                    const response = await fetch("https://formspree.io/f/xaqewnqd", {
+                                        method: "POST",
+                                        body: formData,
+                                        headers: {
+                                            'Accept': 'application/json'
+                                        }
+                                    });
+
+                                    if (response.ok) {
+                                        setFormStatus('sent');
+                                        form.reset();
+                                        setTimeout(() => setFormStatus('idle'), 5000);
+                                    } else {
+                                        console.error("Form error:", await response.json());
+                                        setFormStatus('idle');
+                                        alert(isEs ? "Hubo un error al enviar. Por favor intente nuevamente." : "There was an error sending. Please try again.");
+                                    }
+                                } catch (error) {
+                                    console.error("Network error:", error);
+                                    setFormStatus('idle');
+                                }
+                            }}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <input
                                         type="text"
+                                        name="firstName"
                                         required
                                         placeholder={t.placeholders.first}
                                         className="bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans w-full"
                                     />
                                     <input
                                         type="text"
+                                        name="lastName"
                                         required
                                         placeholder={t.placeholders.last}
                                         className="bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans w-full"
@@ -91,11 +121,13 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
                                 </div>
                                 <input
                                     type="tel"
+                                    name="phone"
                                     required
                                     placeholder={t.placeholders.phone}
                                     className="w-full bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans"
                                 />
                                 <textarea
+                                    name="message"
                                     placeholder={t.placeholders.msg}
                                     rows={2}
                                     className="w-full bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none resize-none font-sans"
