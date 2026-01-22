@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Segue Yachts - Laboratory Archive</title>
+    <!-- Fuentes Globales de Producción -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols con pesos variables -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#c59f59",
+                        "background-dark": "#020d17",
+                    },
+                    fontFamily: {
+                        "display": ["Riviera Nights", "Manrope", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Riviera Nights Font Face Definitions */
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-Ultralight.otf') format('opentype');
+            font-weight: 200;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-UltralightItalic.otf') format('opentype');
+            font-weight: 200;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-LightItalic.otf') format('opentype');
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-RegularItalic.otf') format('opentype');
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-MediumItalic.otf') format('opentype');
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-BoldItalic.otf') format('opentype');
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-Black.otf') format('opentype');
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Riviera Nights';
+            src: url('fonts/RivieraNightsTrial-BlackItalic.otf') format('opentype');
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        body {
+            background-color: #020d17;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Riviera Nights', sans-serif;
+        }
+
+        /* Estándar Elementor - Titulo 110px */
+        .legacy-title {
+            font-family: 'Riviera Nights', "Helvetica Neue LT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 110px;
+            line-height: 110px;
+            font-weight: 200;
+            /* Adjusted to Ultralight/Light as requested in test */
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+        }
+
+        /* Estándar Elementor - Parrafo 35px */
+        .legacy-paragraph {
+            font-family: 'Riviera Nights', "Helvetica Neue LT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 35px;
+            line-height: 45px;
+            font-weight: 200;
+            /* Adjusted */
+            color: #ffffff;
+            /* Espacio exacto de 191px a la punta del barco */
+            margin-bottom: 191px;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-200vh {
+            min-height: 200vh;
+        }
+
+        .bg-overlay {
+            background: linear-gradient(180deg, rgba(2, 13, 23, 0.8) 0%, rgba(2, 13, 23, 0) 35%, rgba(2, 13, 23, 0) 65%, #020d17 100%);
+        }
+
+        /* Recuperación de estilo de menú */
+        .menu-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 0.375rem;
+            /* py-1.5 */
+            padding-bottom: 0.375rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-family: 'Riviera Nights', sans-serif;
+        }
+
+        .menu-link:hover {
+            color: #c59f59;
+        }
+
+        .menu-text {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .arrow-icon {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'grad' 0, 'opsz' 24;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-link:hover .arrow-icon {
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="bg-white py-24 px-12">
+        <style>
+            .riviera-test {
+                font-family: "Riviera Nights", Helvetica, Arial, -apple-system, sans-serif;
+                font-style: normal;
+                font-weight: 200;
+                color: rgb(0, 0, 0);
+                font-size: 40px;
+                line-height: 55px;
+            }
+        </style>
+        <div class="max-w-4xl mx-auto">
+            <h2 class="riviera-test mb-8">Riviera Nights Typography Test</h2>
+            <p class="riviera-test">
+                Riviera Nights - 200 Family "Riviera Nights", Helvetica, Arial, -apple-system, sans-serif Style normal
+                Weight 200 Color rgb(0, 0, 0) Size 40px Line Height 55px
+            </p>
+            <p class="riviera-test mt-8">
+                The quick brown fox jumps over the lazy dog. 1234567890
+            </p>
+        </div>
+    </section>
+
+    <section class="relative section-200vh flex flex-col justify-between overflow-hidden">
+        <!-- Background Image -->
+        <img alt="Vista aérea de un yate Segue" class="absolute inset-0 w-full h-full object-cover opacity-90 scale-105"
+            src="Segue-Blue-Marlin-08-scaled-1.avif" />
+
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-overlay"></div>
+
+        <!-- Main Content (Elementor Precision) -->
+        <div class="relative z-10 w-full flex flex-col items-center pt-48 px-6 text-center">
+            <h2 class="legacy-title mb-16">
+                EL LEGADO DEL<br />MOVIMIENTO
+            </h2>
+
+            <p class="legacy-paragraph">
+                Ya sea deslizándose por aguas tranquilas o abrazando la emoción de horizontes abiertos, cada Segue es
+                una obra maestra de diseño e ingeniería. Creado para quienes buscan elegancia con propósito, es un
+                símbolo de sofisticación atemporal, listo para transformar cada viaje en una experiencia inolvidable.
+            </p>
+        </div>
+
+        <!-- Footer Footer (Estilo Recuperado) -->
+        <div class="relative z-10 w-full px-6 md:px-12 pb-16">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-16 items-end">
+
+                <!-- Left Side: Logo & Socials -->
+                <div class="flex flex-col gap-10">
+                    <img src="Segue-logo.svg" alt="Segue Yachts" class="w-[142px] h-auto brightness-0 invert">
+
+                    <div class="flex gap-6 items-center">
+                        <a href="#" class="text-white hover:text-primary transition-all duration-300">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-primary transition-all duration-300">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 4-8 4z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-primary transition-all duration-300">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12c0-5.523-4.477-10-10-10z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-primary transition-all duration-300">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Menu (Pixel Perfect) -->
+                <div class="flex flex-col w-full md:max-w-xs">
+                    <a href="#" class="menu-link group">
+                        <span class="menu-text">Home</span>
+                        <span class="material-symbols-outlined arrow-icon">arrow_forward</span>
+                    </a>
+                    <a href="#" class="menu-link group">
+                        <span class="menu-text">Our Yachts</span>
+                        <span class="material-symbols-outlined arrow-icon">arrow_forward</span>
+                    </a>
+                    <a href="#" class="menu-link group">
+                        <span class="menu-text">History</span>
+                        <span class="material-symbols-outlined arrow-icon">arrow_forward</span>
+                    </a>
+                    <a href="#" class="menu-link group border-b border-white/10">
+                        <span class="menu-text">Contacto</span>
+                        <span class="material-symbols-outlined arrow-icon">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Segue Experience - Luxury Yachts</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#C5A059",
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#0A0F14",
+                        ocean: {
+                            800: "#1E293B",
+                            900: "#0F172A",
+                        }
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        sans: ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "4px",
+                    },
+                    backgroundImage: {
+                        'gold-metallic': 'linear-gradient(135deg, #E2C17D 0%, #D4AF37 25%, #A67C37 50%, #D4AF37 75%, #E2C17D 100%)',
+                        'charcoal-gradient': 'linear-gradient(135deg, #1F2937 0%, #0F172A 100%)',
+                    }
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        .golden-glow {
+            box-shadow: 0 4px 25px rgba(197, 160, 89, 0.35);
+        }
+        .light-streak {
+            position: relative;
+            overflow: hidden;
+        }
+        .light-streak::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0) 40%,
+                rgba(255, 255, 255, 0.4) 50%,
+                rgba(255, 255, 255, 0) 60%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(-45deg);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-slate-800 antialiased">
+<section class="relative h-[500px] w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Cinematic sunset ocean scene" class="w-full h-full object-cover brightness-[0.45]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEbe0ckstDZW0VVN26rkv4yPfPh4yJjJZCAY8rpuchr4WOCWjhYPankaDQCTZ8HRU_jyKEajT3LLPnzQDQ49_cXNw_QsIY38BuXcnyiV3lruKFgq87a_-L8q7gYsAnoGR55oErnbBFuJH6JHTLOkdOTaGwuWer0xa46Ipna_IjxhumtJuUVPKN2gJHNFOIsXkQhwvT9KYTG1zRsu158SrxBqRTo415a-WiMRLA_1GYCwbTrDQQOeYkt6BZHIDCBbcCpK0FAoDe8AyO"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl px-6 text-center">
+<h1 class="font-sans font-light text-4xl md:text-5xl lg:text-6xl text-white mb-12 tracking-tight whitespace-nowrap">
+                Descubrí la Experiencia Segue
+            </h1>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-8">
+<a class="group relative light-streak w-full sm:w-auto px-12 py-4 rounded-sm bg-gold-metallic text-black font-sans text-xs font-black tracking-[0.25em] uppercase transition-all hover:scale-[1.03] active:scale-95 shadow-2xl golden-glow flex items-center justify-center border border-white/30" href="#">
+<span class="relative z-10">Solicitar Información</span>
+</a>
+<a class="group w-full sm:w-auto px-12 py-4 rounded-sm bg-charcoal-gradient text-white font-sans text-xs font-medium tracking-[0.25em] uppercase transition-all hover:brightness-125 border border-white/10 flex items-center justify-center gap-2 backdrop-blur-sm" href="#">
+<span class="relative z-10">Ver Modelos</span>
+<span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">chevron_right</span>
+</a>
+</div>
+</div>
+</section>
+<section class="h-[200px] w-full bg-[#F9F9F7] flex items-center justify-center border-b border-slate-100">
+<div class="max-w-4xl px-8 text-center">
+<h2 class="font-sans text-xl md:text-2xl font-semibold text-slate-900 tracking-tight mb-4 uppercase">
+                Excelencia en cada detalle
+            </h2>
+<p class="font-sans text-sm md:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto font-light">
+                Nuestros yates son el resultado de una búsqueda constante de la perfección, donde la ingeniería naval se une al diseño artesanal para crear experiencias inigualables en el mar.
+            </p>
+</div>
+</section>
+<div class="fixed top-6 right-6 z-50">
+<button class="p-2 rounded-full bg-black/10 backdrop-blur-md border border-black/5 hover:bg-black/20 transition-all dark:bg-white/10 dark:border-white/20" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined text-slate-800 dark:text-white">contrast</span>
+</button>
+</div>
+
+</body></html>
