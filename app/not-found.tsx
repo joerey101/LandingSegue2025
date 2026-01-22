@@ -1,20 +1,20 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function NotFound() {
     return (
         <div className="relative w-full h-[100dvh] flex flex-col items-center justify-center bg-[#020d17] overflow-hidden text-white">
 
-            {/* Background Image Container - Waiting for User Image */}
-            <div className="absolute inset-0 z-0 opacity-50">
-                {/* TODO: Uncomment when image is available */}
-                {/* <Image 
-              src="/path-to-your-image.jpg" 
-              alt="Horizonte Segue" 
-              fill 
-              className="object-cover"
-              priority
-            /> */}
-                <div className="w-full h-full bg-gradient-to-b from-[#050B14] to-[#001830]" />
+            {/* Background Image Container */}
+            <div className="absolute inset-0 z-0 opacity-40">
+                <Image
+                    src="/404-Segue-01.webp"
+                    alt="Horizonte Segue"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#050B14]/80 to-[#001830]/80" />
             </div>
 
             {/* Radar / Sonar Effect Animation */}
