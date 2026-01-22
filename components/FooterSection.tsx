@@ -45,6 +45,7 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
                     src="/legacy-bg.avif"
                     alt="Legacy Background"
                     fill
+                    unoptimized
                     className="object-cover opacity-90 scale-105"
                 />
             </div>
