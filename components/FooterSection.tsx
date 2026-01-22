@@ -1,9 +1,21 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 export default function FooterSection({ lang }: { lang: "es" | "en" }) {
     const isEs = lang === "es";
+    const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setFormStatus('sending');
+        // Simulate send
+        setTimeout(() => {
+            setFormStatus('sent');
+            // Reset after 3 seconds
+            setTimeout(() => setFormStatus('idle'), 3000);
+        }, 1500);
+    };
 
     const t = {
         legacyTitle: isEs ? <>EL LEGADO DEL<br />MOVIMIENTO</> : <>THE LEGACY OF<br />MOVEMENT</>,
@@ -12,6 +24,8 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
             : "Whether gliding through calm waters or embracing the thrill of open horizons, every Segue is a masterpiece of design and engineering. Created for those who seek purposeful elegance, it is a symbol of timeless sophistication.",
         formTitle: isEs ? "Solicitar Información" : "Request Information",
         cta: isEs ? "Enviar Mensaje" : "Send Message",
+        sending: isEs ? "Enviando..." : "Sending...",
+        sent: isEs ? "¡Mensaje Enviado!" : "Message Sent!",
         placeholders: {
             first: isEs ? "Nombre" : "First Name",
             last: isEs ? "Apellido" : "Last Name",
@@ -59,21 +73,24 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
                             <h3 className="text-primary text-[10px] tracking-[0.4em] font-bold uppercase mb-8 leading-none">
                                 {t.formTitle}
                             </h3>
-                            <form className="space-y-6">
+                            <form className="space-y-6" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <input
                                         type="text"
+                                        required
                                         placeholder={t.placeholders.first}
-                                        className="bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans"
+                                        className="bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans w-full"
                                     />
                                     <input
                                         type="text"
+                                        required
                                         placeholder={t.placeholders.last}
-                                        className="bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans"
+                                        className="bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans w-full"
                                     />
                                 </div>
                                 <input
                                     type="tel"
+                                    required
                                     placeholder={t.placeholders.phone}
                                     className="w-full bg-transparent border-b border-white/20 px-2 py-2 text-[11px] focus:border-primary focus:ring-0 transition-colors placeholder:text-white/30 uppercase tracking-widest outline-none font-sans"
                                 />
@@ -84,9 +101,14 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
                                 ></textarea>
                                 <button
                                     type="submit"
-                                    className="group relative light-streak w-full py-4 bg-segue-blue text-white text-[10px] font-bold tracking-[0.4em] uppercase hover:scale-[1.02] shadow-xl transition-all border border-white/20 hover:border-white/40"
+                                    disabled={formStatus !== 'idle'}
+                                    className={`group relative light-streak w-full py-4 bg-segue-blue text-white text-[10px] font-bold tracking-[0.4em] uppercase hover:scale-[1.02] shadow-xl transition-all border border-white/20 hover:border-white/40
+                    ${formStatus === 'sent' ? 'bg-green-600 border-green-500' : ''}
+                  `}
                                 >
-                                    {t.cta}
+                                    {formStatus === 'idle' && t.cta}
+                                    {formStatus === 'sending' && t.sending}
+                                    {formStatus === 'sent' && t.sent}
                                 </button>
                             </form>
                         </div>

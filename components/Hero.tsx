@@ -11,7 +11,7 @@ export default function Hero({ lang }: { lang: "es" | "en" }) {
                     src="https://player.vimeo.com/video/1156142302?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1"
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
-                    className="absolute inset-0 w-full h-full object-cover scale-[1.6] md:scale-[1.4] origin-center pointer-events-none"
+                    className="absolute inset-0 w-full h-full object-cover scale-[1.8] md:scale-[1.4] origin-center pointer-events-none"
                 ></iframe>
             </div>
 
