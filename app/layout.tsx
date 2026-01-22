@@ -117,6 +117,10 @@ const jsonLd = {
   ]
 };
 
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+
+// ... (existing imports)
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -125,6 +129,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${outfit.variable} ${riviera.variable} antialiased`}>
       <body className="bg-background-dark text-white font-sans overflow-x-hidden selection:bg-primary selection:text-white">
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-VBGF8FQ4PE" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
