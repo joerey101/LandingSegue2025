@@ -30,7 +30,7 @@ export default function Hero({ lang }: { lang: "es" | "en" }) {
                 <p className="text-white/90 tracking-[0.4em] text-[10px] md:text-sm font-bold mb-6 uppercase animate-pulse no-underline border-none decoration-0">
                     {isEs ? "La Nueva Era de Segue" : "The New Era of Segue"}
                 </p>
-                <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-extralight leading-[1.1] tracking-tight md:tracking-normal mb-8 text-white drop-shadow-lg uppercase">
+                <h1 className="font-serif text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-extralight leading-[1.1] tracking-tight md:tracking-normal mb-8 text-white drop-shadow-lg uppercase">
                     {isEs ? (
                         <span className="font-sans font-light tracking-wide">
                             REDEFINIENDO <br />
