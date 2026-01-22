@@ -11,7 +11,7 @@ export default function Hero({ lang }: { lang: "es" | "en" }) {
                     src="https://player.vimeo.com/video/1156142302?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1&playsinline=1"
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
-                    className="absolute inset-0 w-full h-full object-cover scale-[1.8] md:scale-[1.4] origin-center pointer-events-none"
+                    className="absolute inset-0 w-full h-full object-cover scale-[3.5] md:scale-[1.4] origin-center pointer-events-none"
                 ></iframe>
             </div>
 
@@ -33,8 +33,9 @@ export default function Hero({ lang }: { lang: "es" | "en" }) {
                 <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-extralight leading-[1.1] tracking-tight md:tracking-normal mb-8 text-white drop-shadow-lg uppercase">
                     {isEs ? (
                         <>
-                            Rediseñando los <br />
-                            <span className="italic text-white">Límites del Diseño</span>
+                            Redefiniendo <br />
+                            Los Límites <br />
+                            <span className="italic text-white font-sans sm:font-serif">del Diseño</span>
                         </>
                     ) : (
                         <>
