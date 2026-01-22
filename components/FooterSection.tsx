@@ -33,8 +33,8 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
             msg: isEs ? "Mensaje" : "Message",
         },
         rights: isEs
-            ? "© 2026 Segue Yachts. Todos los derechos reservados."
-            : "© 2026 Segue Yachts. All rights reserved.",
+            ? <>© 2026 Segue Yachts.<br className="md:hidden" /> Todos los derechos reservados.</>
+            : <>© 2026 Segue Yachts.<br className="md:hidden" /> All rights reserved.</>,
     };
 
     return (

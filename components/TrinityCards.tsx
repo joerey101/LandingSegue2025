@@ -97,7 +97,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                         </div>
 
                         {/* Content (Visible when expanded or hovered) */}
-                        <div className={`absolute bottom-0 left-0 w-full p-6 lg:p-16 z-30 transform transition-all duration-700 col-content flex flex-col justify-end h-full bg-gradient-to-t from-background-dark/95 via-background-dark/40 to-transparent
+                        <div className={`absolute bottom-0 left-0 w-full p-6 pb-12 lg:p-16 z-30 transform transition-all duration-700 col-content flex flex-col justify-end h-full bg-gradient-to-t from-background-dark/95 via-background-dark/40 to-transparent
                              ${expandedCard === 'X4' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0'}`}>
                             <span className="text-primary text-[10px] card-tag font-bold uppercase mb-2 lg:mb-3">
                                 {isEs ? "PURA SANGRE" : "THOROUGHBRED"}
@@ -161,7 +161,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                             </span>
                         </div>
 
-                        <div className={`absolute bottom-0 left-0 w-full p-6 lg:p-16 z-30 transform transition-all duration-700 col-content flex flex-col justify-end h-full bg-gradient-to-t from-background-dark/95 via-background-dark/40 to-transparent
+                        <div className={`absolute bottom-0 left-0 w-full p-6 pb-12 lg:p-16 z-30 transform transition-all duration-700 col-content flex flex-col justify-end h-full bg-gradient-to-t from-background-dark/95 via-background-dark/40 to-transparent
                              ${expandedCard === 'X6' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0'}`}>
                             <span className="text-primary text-[10px] card-tag font-bold uppercase mb-2 lg:mb-3">
                                 {isEs ? "EL AMPLIFICADOR DE VIDA" : "ELEVATING LIFE"}
@@ -228,7 +228,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                             </span>
                         </div>
 
-                        <div className={`absolute bottom-0 left-0 w-full p-6 lg:p-16 z-30 transform transition-all duration-700 col-content flex flex-col justify-end h-full bg-gradient-to-t from-background-dark/95 via-background-dark/40 to-transparent
+                        <div className={`absolute bottom-0 left-0 w-full p-6 pb-12 lg:p-16 z-30 transform transition-all duration-700 col-content flex flex-col justify-end h-full bg-gradient-to-t from-background-dark/95 via-background-dark/40 to-transparent
                              ${expandedCard === 'XS5' ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:translate-y-0'}`}>
                             <span className="text-primary text-[10px] card-tag font-bold uppercase mb-2 lg:mb-3">
                                 {isEs ? "DISEÑO DE ALTO RENDIMIENTO" : "PERFORMANCE DESIGN"}

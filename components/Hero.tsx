@@ -32,11 +32,11 @@ export default function Hero({ lang }: { lang: "es" | "en" }) {
                 </p>
                 <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-extralight leading-[1.1] tracking-tight md:tracking-normal mb-8 text-white drop-shadow-lg uppercase">
                     {isEs ? (
-                        <>
-                            Redefiniendo <br />
-                            Los Límites <br className="md:hidden" />
-                            <span className="italic text-white font-sans sm:font-serif"> del Diseño</span>
-                        </>
+                        <span className="font-sans font-light tracking-wide">
+                            REDEFINIENDO <br />
+                            LOS LÍMITES <br className="md:hidden" />
+                            <span className="italic font-light">DEL DISEÑO</span>
+                        </span>
                     ) : (
                         <>
                             Redefining the <br />
