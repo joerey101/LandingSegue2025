@@ -26,8 +26,8 @@ export default function Hero({ lang }: { lang: "es" | "en" }) {
             ></div>
 
             {/* Content */}
-            <div className="relative z-20 text-center px-4 max-w-5xl mx-auto mt-32 md:mt-48">
-                <p className="text-white/90 tracking-[0.4em] text-[10px] md:text-sm font-bold mb-6 uppercase animate-pulse shadow-sm no-underline border-none decoration-0">
+            <div className="relative z-20 text-center px-4 max-w-7xl mx-auto mt-32 md:mt-48">
+                <p className="text-white/90 tracking-[0.4em] text-[10px] md:text-sm font-bold mb-6 uppercase animate-pulse no-underline border-none decoration-0">
                     {isEs ? "La Nueva Era de Segue" : "The New Era of Segue"}
                 </p>
                 <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-extralight leading-[1.1] tracking-tight md:tracking-normal mb-8 text-white drop-shadow-lg uppercase">
