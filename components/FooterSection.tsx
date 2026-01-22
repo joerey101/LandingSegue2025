@@ -42,7 +42,7 @@ export default function FooterSection({ lang }: { lang: "es" | "en" }) {
             {/* Background Image */}
             <div className="absolute inset-0 w-full h-full pointer-events-none">
                 <Image
-                    src="/Segue-Blue-Marlin-08-scaled-1.avif"
+                    src="/legacy-bg.avif"
                     alt="Legacy Background"
                     fill
                     className="object-cover opacity-90 scale-105"
