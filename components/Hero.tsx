@@ -39,8 +39,9 @@ export default function Hero({ lang }: { lang: "es" | "en" }) {
                         </span>
                     ) : (
                         <>
-                            Redefining the <br />
-                            <span className="italic text-white">Limits of Design</span>
+                            Redefining <br className="md:hidden" />
+                            The Limits <br />
+                            <span className="italic text-white">Of Design</span>
                         </>
                     )}
                 </h1>

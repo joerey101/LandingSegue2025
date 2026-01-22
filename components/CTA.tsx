@@ -21,12 +21,19 @@ export default function CTA({ lang }: { lang: "es" | "en" }) {
                         <span className="italic opacity-80">{t.subtitle}</span>
                     </h2>
 
-                    <Link
-                        href={t.link}
-                        className="group relative light-streak px-12 py-4 rounded-sm bg-segue-blue text-white font-sans text-[11px] font-bold tracking-[0.25em] uppercase transition-all hover:scale-[1.05] active:scale-95 shadow-xl flex items-center justify-center border border-white/20 hover:border-white/40 shrink-0"
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            const targetId = t.link.replace('#', '');
+                            const element = document.getElementById(targetId);
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }}
+                        className="group relative light-streak px-12 py-4 rounded-sm bg-segue-blue text-white font-sans text-[11px] font-bold tracking-[0.25em] uppercase transition-all hover:scale-[1.05] active:scale-95 shadow-xl flex items-center justify-center border border-white/20 hover:border-white/40 shrink-0 cursor-pointer"
                     >
                         <span className="relative z-10">{t.btn}</span>
-                    </Link>
+                    </button>
                 </div>
             </div>
         </section>
