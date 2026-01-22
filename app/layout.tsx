@@ -28,8 +28,24 @@ const riviera = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://discover.segueyachts.com"),
   title: "Segue Yachts | Rediseñando los Límites",
   description: "La Nueva Era de Segue. Rediseñando los límites del diseño naval.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Segue Yachts | Rediseñando los Límites",
+    description: "La Nueva Era de Segue. Rediseñando los límites del diseño naval.",
+    url: "https://discover.segueyachts.com",
+    siteName: "Segue Yachts",
+    locale: "es_ES",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
