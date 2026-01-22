@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #c59f59;
+  --color-background-light: #f3f3f6;
+  --color-background-dark: #020d17;
+  --color-surface-dark: #0b1623;
+  --color-segue-blue: #0047AB;
+
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-display: var(--font-riviera), var(--font-outfit), sans-serif;
+  --font-serif: var(--font-riviera), serif;
+}
+
+/* Custom Styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #fff 0%, #c59f59 50%, #fff 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Trinity Card Styles */
+.trinity-col {
+  transition: flex 1s cubic-bezier(0.22, 1, 0.36, 1);
+  flex: 1;
+}
+
+.trinity-container:hover .trinity-col {
+  flex: 1;
+}
+
+.trinity-container .trinity-col:hover {
+  flex: 3 !important;
+}
+
+.trinity-container:not(:hover) .trinity-col:first-child {
+  flex: 3;
+}
+
+.trinity-col .col-content {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: all 0.7s ease-out;
+}
+
+.trinity-col:hover .col-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.trinity-container:not(:hover) .trinity-col:first-child .col-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.trinity-col:hover .model-title {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.trinity-container:not(:hover) .trinity-col:first-child .model-title {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.trinity-col:hover .mobile-title,
+.trinity-container:not(:hover) .trinity-col:first-child .mobile-title {
+  opacity: 0;
+}
+
+.mobile-title {
+  transition: opacity 0.5s ease;
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-out infinite alternate;
+}
+
+/* Light Streak */
+.light-streak {
+  position: relative;
+  overflow: hidden;
+}
+
+.light-streak::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0) 100%);
+  transform: rotate(-45deg);
+  pointer-events: none;
+  animation: move-streak 6s infinite;
+}
+
+@keyframes move-streak {
+  0% {
+    transform: rotate(-45deg) translateX(-100%);
+  }
+
+  100% {
+    transform: rotate(-45deg) translateX(100%);
+  }
+}
+
+.card-tag {
+  letter-spacing: 0.3em !important;
+}
+
+.card-title {
+  letter-spacing: 0.05em !important;
+  line-height: 1.1;
+}
+
+.card-description {
+  letter-spacing: 0.02em !important;
+  line-height: 1.7;
+}
+
+/* Legacy Typography */
+.legacy-title {
+  font-family: "Helvetica Neue LT", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: 42px !important;
+  line-height: 1.1 !important;
+  font-weight: 300 !important;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+.legacy-paragraph {
+  font-family: "Helvetica Neue LT", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  font-size: 20px !important;
+  line-height: 1.4 !important;
+  font-weight: 300 !important;
+}
+
+@media (min-width: 768px) {
+  .legacy-title {
+    font-family: var(--font-riviera) !important;
+    font-size: 110px !important;
+    line-height: 110px !important;
+    font-weight: 200 !important;
+  }
+
+  .legacy-paragraph {
+    font-family: var(--font-riviera) !important;
+    font-size: 35px !important;
+    line-height: 45px !important;
+    font-weight: 200 !important;
+  }
+}
