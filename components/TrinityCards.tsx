@@ -81,7 +81,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                         <div className="absolute inset-0 overflow-hidden">
                             <Image
                                 src="/X4-Segue.jpg"
-                                alt="X4 Sport yacht"
+                                alt="X4 yacht"
                                 fill
                                 className="object-cover opacity-90 transition-opacity duration-700 animate-ken-burns"
                             />
@@ -103,7 +103,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                                 {isEs ? "PURA SANGRE" : "THOROUGHBRED"}
                             </span>
                             <h3 className="font-serif text-3xl lg:text-6xl text-white mb-4 lg:mb-6 card-title">
-                                X4 SPORT
+                                X4
                             </h3>
                             <p className="text-white/80 font-light max-w-sm mb-6 lg:mb-10 card-description block">
                                 {isEs
@@ -132,7 +132,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
 
                         {/* Mobile Title (Always visible unless expanded?) - actually user said info inside when deployed. */}
                         <div className={`absolute bottom-6 left-6 lg:hidden z-30 mobile-title transition-opacity duration-300 ${expandedCard === 'X4' ? 'opacity-0' : 'opacity-100'}`}>
-                            <h3 className="font-serif text-2xl text-white">X4 SPORT</h3>
+                            <h3 className="font-serif text-2xl text-white">X4</h3>
                         </div>
                     </div>
 
@@ -167,7 +167,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                                 {isEs ? "EL AMPLIFICADOR DE VIDA" : "ELEVATING LIFE"}
                             </span>
                             <h3 className="font-serif text-3xl lg:text-6xl text-white mb-4 lg:mb-6 card-title">
-                                X6 FLYBRIDGE
+                                X6
                             </h3>
                             <p className="text-white/80 font-light max-w-sm mb-6 lg:mb-10 card-description block">
                                 {isEs
@@ -199,7 +199,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                             </div>
                         </div>
                         <div className={`absolute bottom-6 left-6 lg:hidden z-30 mobile-title transition-opacity duration-300 ${expandedCard === 'X6' ? 'opacity-0' : 'opacity-100'}`}>
-                            <h3 className="font-serif text-2xl text-white">X6 FLYBRIDGE</h3>
+                            <h3 className="font-serif text-2xl text-white">X6</h3>
                         </div>
                     </div>
 
@@ -234,7 +234,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                                 {isEs ? "DISEÑO DE ALTO RENDIMIENTO" : "PERFORMANCE DESIGN"}
                             </span>
                             <h3 className="font-serif text-3xl lg:text-6xl text-white mb-4 lg:mb-6 card-title">
-                                SEGUE XS 5
+                                XS 5
                             </h3>
                             <p className="text-white/80 font-light max-w-sm mb-6 lg:mb-10 card-description block">
                                 {isEs
@@ -266,7 +266,7 @@ export default function TrinityCards({ lang }: { lang: "es" | "en" }) {
                             </div>
                         </div>
                         <div className={`absolute bottom-6 left-6 lg:hidden z-30 mobile-title transition-opacity duration-300 ${expandedCard === 'XS5' ? 'opacity-0' : 'opacity-100'}`}>
-                            <h3 className="font-serif text-2xl text-white">SEGUE XS 5</h3>
+                            <h3 className="font-serif text-2xl text-white">XS 5</h3>
                         </div>
                     </div>
                 </div>
